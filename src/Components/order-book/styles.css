@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid gray;
+  padding: 4px 8px;
+}
+
+.list {
+  border: 1px solid gray;
+  padding: 8px;
+  border-radius: 4px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.order {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+}
+
+.bids-bg {
+  background-color: rgba(0, 200, 0, 0.1);
+}
+
+.asks-bg {
+  background-color: rgba(200, 0, 0, 0.1);
+}
+
+.bids-title {
+  color: green;
+}
+
+.asks-title {
+  color: red;
+}
