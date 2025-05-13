@@ -13,6 +13,7 @@ function App() {
 
   useEffect(() => {
     const fetchOrderBook = async () => {
+      // add try catch and handle an alert for error when fetching getOrderBook
       const res = await getOrderbook(asset);
       setOrderBook(res?.data || {});
     };

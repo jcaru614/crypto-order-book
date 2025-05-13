@@ -17,6 +17,7 @@ const OrderBook = ({ orderBook, onOrderBookClick }: Props) => {
             <span>Price</span>
             <span>Qty</span>
           </div>
+          {/* install react-window for lazy loading orderBook bids and asks */}
           <div className='list bids-bg'>
             {orderBook.bids?.map(([price, qty], i) => (
               <div
