@@ -28,7 +28,6 @@ const OrderForm = ({
   const [type, setType] = useState('LIMIT');
 
   const notional = () => {
-    // useMemo here so no recalcuation on each render
     if (type === 'LIMIT') return Number(quantity) * Number(price);
     const px = side === 'BUY' ? Number(orderBook.asks?.[0]?.[0]) : Number(orderBook.bids?.[0]?.[0]);
     return Number(quantity) * px;
@@ -42,7 +41,6 @@ const OrderForm = ({
   };
 
   const placeOrder = async () => {
-    // handle !isNan for letters or empty values when placing order
     const finalPrice = type === 'LIMIT' ? Number(price) : getMarketPrice();
     if (Number(quantity) <= 0 || finalPrice <= 0) {
       alert('Quantity and price must be positive numbers.');
@@ -72,7 +70,6 @@ const OrderForm = ({
   return (
     <div>
       <h1>Crypto Order Form</h1>
-      {/* extract dropdowns as reusable components */}
       <div className='row'>
         <p>Asset</p>
         <select value={asset} onChange={(e) => setAsset(e.target.value)}>

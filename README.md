@@ -1,17 +1,3 @@
-# NASCENT TAKE HOME TEST
-
-## Assignment
-Please thoroughly review the provided Assignment requirements PDF for the description.
-
-## Candidate Notes
-- Folder structure is modular. Each component has its own CSS file and is exported via index.
-- Types are defined in types file and reused across components.
-- Installed Axios for requests, I find it cleaner than fetch.
-- Considered using Redux since I prefer it for avoiding prop drilling and keeping logic out of top level components, but skipped it since it was a bit overkill here.
-- Could have abstracted some UI into shared components like a <FormRow>, but kept things flat since component folder was scoped specifically to the order form.
-- Went over 3 hours doing the bonus features.
-- For the bonus feature the instructions mention “immediately send the order” after clicking a limit price. I chose to still require clicking "Place Order" instead, since users may change quantity, cancel the trade or maybe they missread and clicked the wrong bid/ask.
-
 ## About the Template
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

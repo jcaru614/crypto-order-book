@@ -9,15 +9,10 @@ const ethOrderbook = require('./data/eth_orderbook.json');
 
 app.use(express.json());
 
-/* Endpoint for simple hello world test */
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-/* Orderbook Endpoint
-Specifying the optional asset parameter will allow getting the orderbook for that asset. The default is always BTC.
-Example: http://localhost:3001/orderbook/ETH
-*/
 app.get('/orderbook/:asset?', (req, res) => {
   const asset = req.params.asset?.toUpperCase() || 'BTC';
   switch (asset) {
@@ -30,20 +25,10 @@ app.get('/orderbook/:asset?', (req, res) => {
   }
 });
 
-/* Orderbook Endpoint
-The trade requires: asset (string), side (BUY/SELL), type (optional: LIMIT/MARKET), quantity (number), price (number), notional (number)
-This endpoint performs simple validation. Returns the submitted order, with a unique id and timestamp of submisison.
-Example:
-  curl --header "Content-Type: application/json" \
-    --request POST \
-    --data '{"asset":"BTC","side":"BUY", "type": "LIMIT", "quantity": 2, "price": 61000, "notional": 122000}' \
-    http://localhost:3001/trade
-*/
 app.post('/trade/', (req, res) => {
   const order = req.body;
   console.log(req.body);
 
-  // Validations
   if (!order.asset) {
     res.status('422').send({ error: 'Asset is missing' });
   }
@@ -56,7 +41,7 @@ app.post('/trade/', (req, res) => {
     res.status('422').send({ error: 'Quantity is invalid' });
   }
 
-  order.type = order.type || 'LIMIT'; // default to LIMIT
+  order.type = order.type || 'LIMIT'; 
   if (order.type?.toUpperCase() === 'LIMIT' && (!order.price || order.price <= 0)) {
     res.status('422').send({ error: 'Price is invalid for LIMIT order' });
   }
