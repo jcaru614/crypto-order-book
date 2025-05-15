@@ -1,8 +1,5 @@
-// Skeleton for API calls
-
 import axios from 'axios';
 
-// Orderbook API
 export const getOrderbook = async (asset: string) => {
   try {
     const response = await axios.get(`/orderbook/${asset}`);
@@ -12,7 +9,6 @@ export const getOrderbook = async (asset: string) => {
   }
 };
 
-// Trade API
 export const sendTrade = async (order: any) => {
   try {
     const response = await axios.post('/trade', order);
